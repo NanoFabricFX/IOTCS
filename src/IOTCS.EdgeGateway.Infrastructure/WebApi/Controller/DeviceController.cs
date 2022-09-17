@@ -34,7 +34,7 @@ namespace IOTCS.EdgeGateway.Infrastructure.WebApi.Controller
                 deviceDto.CreaterBy = JsonConvert.DeserializeObject<UserDto>(user).DisplayName;
                 var rResult = await _service.Create(deviceDto);
                 result.Successful = rResult;
-                result.ErrorMessage = rResult ? "" : "创建失败,请检查类型及是否重复!";
+                result.ErrorMessage = rResult ? "" : "创建失败,请检查设备名称及其它参数是否重复!";
             }
             else
             {
@@ -115,5 +115,15 @@ namespace IOTCS.EdgeGateway.Infrastructure.WebApi.Controller
         }
 
 
+        [HttpGet]
+        [Route("device/data/getDriveNodeType")]
+        public async Task<DataResponseDto<string>> GetDriveNodeType(string deviceId)
+        {
+            var result = new DataResponseDto<string>();
+            var nodeTypeJson = await _service.GetNodeTypeConfigByDevId(deviceId);
+            result.Successful = true;
+            result.Data = nodeTypeJson;
+            return result;
+        }
     }
 }

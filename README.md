@@ -8,16 +8,18 @@
 * 内置Mqtt服务端,支持websocket,进行标准mqtt输出
 * 可视化的驱动设备配置实现数据采集
 * 支持工业现场的多种设备协议
+* 支持驱动二次开发
 * 内置OPCUA驱动协议
-* 内置西门子PLC驱动(待开发中)
+* 内置西门子S7协议
+* 内置Modbus驱动全协议支持
 * 内置欧姆龙PLC驱动（待开发中）
 * 内置三菱PLC驱动（待开发中）
-* 支持驱动二次开发
-* 内置Modbus驱动全协议支持（待开发中）  
+
+ 
 
 
 # 安装部署
-![image](images/1648891279.jpg)
+![image](images/shouye.jpg)
 # 安装运行条件
 ## Windows主机运行：
 * 下载windows运行环境：安装.net core3.1   
@@ -73,12 +75,6 @@ docker pull iotcs/igateway:0.6
 
 docker run --restart always --name iigateway -dit -p 8001:8001 -p 9001:9001 iotcs/igateway:0.6
 ```
-## linux/arm64 docker运行
-```
-docker pull iotcs/igateway:arm
-
-docker run --restart always --name iigateway -dit -p 8001:8001 -p 9001:9001 iotcs/igateway:arm
-```
 # 功能说明
 #### 登入系统   
 * 用户名 admin,密码 1111  
@@ -91,7 +87,7 @@ docker run --restart always --name iigateway -dit -p 8001:8001 -p 9001:9001 iotc
 * 设备组的统一管理，设备通过父级ID关联设备组
 * 设备参数配置  
 * 设备变量配置  
-![image](images/device.jpg)
+![image](images/shebei.jpg)
 ![image](images/datalocation.jpg)
 #### 规则管理
 * 规则列表
